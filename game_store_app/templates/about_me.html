@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about the website developer</title>
+</head>
+<style>
+     body {
+      background-color: lightpink;
+    }
+   
+    img{
+        padding: 10px;
+        background: #f559a7; /* Цветная рамка */
+        margin: 5px auto; /* Выравнивание по центру */
+        display: block; 
+     }
+     .link{
+      font-size: 20px;
+    }
+    .p{
+        color: black;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div class="p">
+    <p>Разработчик: Абалуева Анастасия Олеговна</p>
+    <p>Группа: 81 ТП</p>
+    <p>Люблю котиков</p>
+    </div>
+
+    <div class="link">
+        <a href="http://127.0.0.1:8000" style="color: black;"> <-Вернуться назад</a>
+    </div>
+
+    <div class="img">
+    <img src="{% static 'img/evochka.jpg' %}"  width="300" height="400"alt="photo" >
+    </div>
+</body>
+</html>

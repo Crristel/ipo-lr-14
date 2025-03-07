@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page of game store</title>
+   
+</head>
+<style>
+    body {
+      background-color: darkcyan;
+    }
+    .right-link{
+        float: right;
+        font-size: 30px;
+        color: white;
+    }
+    .left-link{
+      font-size: 30px;
+      color: white;
+    }
+    .rightpic {
+        margin: 5px auto; /* Выравнивание по центру */
+        display: block; /* Убедитесь, что изображение как блочный элемент */
+    }
+    .p{
+      text-align: center;
+      color: white;
+      font-size: 50px;
+    }
+</style>
+<body>
+        <div class="p"><p>Привет! это главная страница моего сайта</p></div>
+        <hr color = "white", size="5">
+    
+        <a class="left-link" href="http://127.0.0.1:8000/about_me">О разработчике сайта</a>
+  
+        <a class="right-link" href="http://127.0.0.1:8000/game_store">Магазин настольных игр</a>
+
+
+        <img class="rightpic" src="{% static 'img/smile.jpg' %}"  width="300" height="300"alt="photo" >
+    
+    
+</body>
+</html>
