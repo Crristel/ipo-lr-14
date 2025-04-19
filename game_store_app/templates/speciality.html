@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> speciality</title>
+</head>
+<body>
+    <form method="GET" action ="{% url 'speciality_found' %}">
+        <input type="text" name="code" placeholder="Введите код специальности">
+        <button name="Найти"type ="submit"> Найти</button> <!-- submit для отправки "формы" -->
+    </form>
+    <a href="http://127.0.0.1:8000" style="color: black;"> <-Вернуться назад</a>
+
+<!-- тег чтобы всё было одно под одним -->
+    <ul>
+        {% for specialty in specialties %}
+        <!-- тег для точек-->
+            <li> 
+                <strong>Название:</strong> {{ specialty.title }}<br>
+                <strong>Код специальности:</strong> {{ specialty.code }}<br>
+                <strong>PK:</strong> {{ specialty.pk }}<br>
+                <strong>Тип обучения:</strong> {{ specialty.educational }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

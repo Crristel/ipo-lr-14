@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>speciality_found</title>
+</head>
+<body>
+    {% if speciality %}  <!-- Исправлено на правильное имя переменной -->
+    <ul>
+        {% for specialty in speciality %}  <!-- Добавлен цикл для перебора всех найденных специальностей -->
+            <li> 
+                <strong>Название:</strong> {{ specialty.title }}<br>
+                <strong>Код специальности:</strong> {{ specialty.code }}<br>
+                <strong>PK:</strong> {{ specialty.pk }}<br>
+                <strong>Тип обучения:</strong> {{ specialty.educational }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="http://127.0.0.1:8000/spec" style="color: black;"> <-Вернуться назад</a>
+    {% else %}
+        <p>Специальность не найдена!</p> 
+    {% endif %}
+</body>
+</html>
