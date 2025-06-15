@@ -6,11 +6,11 @@
     <title>speciality_found</title>
 </head>
 <body>
-    {% if speciality %}  <!-- Исправлено на правильное имя переменной -->
+    {% if speciality %}  
     <ul>
-        {% for specialty in speciality %}  <!-- Добавлен цикл для перебора всех найденных специальностей -->
+        {% for spec in speciality %}  
             <li> 
-                <strong>Название:</strong> {{ specialty.title }}<br>
+                <strong>Название:</strong> {{ spec.title }}<br>
                 <strong>Код специальности:</strong> {{ specialty.code }}<br>
                 <strong>PK:</strong> {{ specialty.pk }}<br>
                 <strong>Тип обучения:</strong> {{ specialty.educational }}<br>

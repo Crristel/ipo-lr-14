@@ -52,7 +52,6 @@ class CustomUserAdmin(UserAdmin):
     )
 
 
-
 @admin.register(Basket)
 class BasketAdmin(admin.ModelAdmin):
     list_display = ('user', 'creation_date', 'total_cost',)
@@ -64,8 +63,6 @@ class BasketAdmin(admin.ModelAdmin):
                 'fields': ('user', 'creation_date', 'total_cost')
             }),
         )
-
-
 
 
 @admin.register(Basket_element)

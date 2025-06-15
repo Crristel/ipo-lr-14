@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 AUTH_USER_MODEL = 'game_store_app.CustomUser'#пользовательская модель User
@@ -130,4 +131,9 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/photo/' # путь по которому фото будет доступно
+MEDIA_URL = '/photo/'# по которому фото будет доступно
+
+
+# LOGIN_URL = '/login/'
+# LOGIN_REDIRECT_URL = '/cart'
+# LOGOUT_REDIRECT_URL = '/'

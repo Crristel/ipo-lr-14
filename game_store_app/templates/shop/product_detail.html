@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ {% if product %}
+        <div>
+            <strong>Название:</strong> {{ product.name }}<br>
+            <strong>Категория:</strong> {{ product.category }}<br>
+            <strong>Цена:</strong> {{ product.price }}<br>
+            <strong>Производитель:</strong> {{ product.maker }}<br>
+            <strong>Количество на складе:</strong> {{ product.stok_quantity }}<br>
+            
+            {% if product.photo %}
+                <img src="{{ product.photo.url }}" alt="{{ product.name }}" style="max-width: 300px;">
+            {% else %}
+                <p>Изображение отсутствует</p>
+            {% endif %}
+            
+            
+        </div>
+        
+        <strong>Описание:</strong><br>
+        {{ product.description }}<br>
+    {% endif %}
+    
+    <a href="http://127.0.0.1:8000/catalog" style="color: black;"><- Вернуться назад</a>
+</body>
+</html>

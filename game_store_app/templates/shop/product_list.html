@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product_list</title>
+</head>
+<body>
+
+        <style>
+            .filter-form {
+                width: 300px;
+                padding: 15px;
+            }
+            .filter-form label {
+                display: inline-block;
+                width: 120px;
+            }
+            .filter-form button {
+                 margin-top: 10px; /*отступ сверху перед кнопкой */
+            }
+        </style>
+
+        <form method="get" class="filter-form">
+            <div>
+                <label>Категория:</label>
+                {{ form.category }}
+            </div>
+            <div>
+                <label>Производитель:</label>
+                {{ form.maker }}
+            </div>
+            <button type="submit">Применить фильтр</button>
+        </form>
+  
+        <form method="get" class="filter-form">
+            {{ form.search }}
+            <button type="submit">Поиск</button>
+        </form>
+         <a href="http://127.0.0.1:8000/catalog">Отменить фильтры</a>
+  
+      <ul>
+        {% for product in products %}
+       
+            <li> 
+                <strong>Название:</strong>
+                {{ product.name }}<br>
+                <strong>Категория:</strong>
+                {{product.category}}<br>
+                <strong>Производитель:</strong>
+                {{product.maker}}<br>
+                <strong>Описание:</strong><br>
+                {{product.description}}
+
+            </li>
+        {% endfor %}
+           
+    </ul>  
+</body>
+</html>

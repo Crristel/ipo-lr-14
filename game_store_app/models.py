@@ -4,12 +4,12 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from django.core.exceptions import ValidationError
 
+
 # Create your models here.
 
 
 class CustomUser(AbstractUser):
-    about_yourself = models.TextField(blank=True, null=True,verbose_name="О себе", max_length=200)
-    
+    about_yourself = models.TextField(blank=True, null=True,verbose_name="О себе", max_length=200) 
 
 
 class Category(models.Model):
