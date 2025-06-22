@@ -49,7 +49,7 @@
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <li>{{ message }}</li> 
     {% endfor %}
 </ul>
 {% endif %}
@@ -85,7 +85,7 @@
                 <td>
                     <form method="post" action="{% url 'remove_from_cart' item.id %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Удалить</button>
+                        <button type="submit">Удалить</button>
                     </form>
                 </td>
         </tr>
@@ -103,7 +103,7 @@
 {% else %}
 <p>Ваша корзина пуста</p>
 {% endif %}
-
+<a href="http://127.0.0.1:8000/checkout" style="color: black"> Оформить заказ</a>
 {%endblock%}
 </body>
 </html>

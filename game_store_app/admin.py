@@ -6,7 +6,7 @@ from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
 
-from .models import Category, Maker, Product, Basket,Basket_element
+from .models import Category, Maker, Product, Basket,Basket_element,Order,OrderItem
 from django.utils.html import format_html
 
 @admin.register(Category)
@@ -32,12 +32,12 @@ class ProductAdmin(admin.ModelAdmin):
                 obj.photo.url # url фото вставляется в <img src= "{}" c помощью format_html
             )
         return "—"
-    display_photo.short_description = 'Фото' #название для колонки в админке
 
 
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
     list_display = ['username', 'email']
+    # поля при редактировании 
     fieldsets = (
          # none это означает, что поля username и password будут отображаться без заголовка
         ('Персональная информация', {
@@ -45,6 +45,7 @@ class CustomUserAdmin(UserAdmin):
         }),
         
     )
+    # поля при создании
     add_fieldsets = (
         (None, {
             'fields': ('username', 'email', 'password1', 'password2')
@@ -75,5 +76,29 @@ class BasketElementAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': ('basket', 'product', 'quantity')
+        }),
+    )
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('user', 'created', 'total_price',)
+    list_filter = ('created',)
+    search_fields = ('user__username',)
+    readonly_fields = ('created', 'total_price',) # readonly_fields нельзя редактировать только режим чтения
+    fieldsets = (
+            (None, {
+                'fields': ('user', 'created', 'total_price')
+            }),
+        )
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ('order', 'product', 'quantity', 'price',)
+    list_filter = ('order__user', 'product',)
+    search_fields = ('product__name', 'order__user__username',)
+    readonly_fields = ('price',)
+    
+    fieldsets = (
+        (None, {
+            'fields': ('order', 'product', 'quantity')
         }),
     )

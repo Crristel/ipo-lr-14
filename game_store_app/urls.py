@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (home_page,about_me,game_store,speciality,speciality_found,
 speciality_id,product_list,product_detail,
 add_to_cart,update_cart,remove_from_cart, 
-cart_view,user_login,register)
+cart_view,user_login,register,checkout)
 
 urlpatterns = [
     path('', home_page, name='home_page'), # name что бы можно было указывать только его в a href к примеру
@@ -20,6 +20,7 @@ urlpatterns = [
     path('cart/remove/<int:item_id>/',remove_from_cart,name='remove_from_cart'),
 
     path('register/', register, name='register'),
-    path('login/', user_login, name='login')
+    path('login/', user_login, name='login'),
+    path('checkout/',checkout,name='checkout')
     
 ]

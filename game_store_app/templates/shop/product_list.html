@@ -6,7 +6,6 @@
     <title>Product_list</title>
 </head>
 <body>
-
         <style>
             .filter-form {
                 width: 300px;
@@ -20,11 +19,19 @@
                  margin-top: 10px; /*отступ сверху перед кнопкой */
             }
         </style>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li>{{ message }}</li> 
+                {% endfor %}
+            </ul>
+        {% endif %}
 
         <form method="get" class="filter-form">
             <div>
                 <label>Категория:</label>
-                {{ form.category }}
+                {{ form.category }} 
+                <!-- обращение к полю класса Filter в forms.py  -->
             </div>
             <div>
                 <label>Производитель:</label>

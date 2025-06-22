@@ -16,7 +16,7 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class Filter(forms.Form):
-    category = forms.CharField(required=False, label='Категория')
+    category = forms.CharField(required=False, label='Категория') #required=False может быть переопределено в форме, даже если blank в модели True.(делает поле необязательним к заполнению)
     maker = forms.CharField(required=False,label='Производитель')
     search = forms.CharField(required=False)
 
@@ -27,3 +27,6 @@ class UserRegistrationForm(UserCreationForm):
 
 class LoginForm(AuthenticationForm):
     pass
+
+
+
