@@ -1,10 +1,35 @@
-from django.urls import path
+from django.urls import path, include
 from .views import (home_page,about_me,game_store,speciality,speciality_found,
 speciality_id,product_list,product_detail,
 add_to_cart,update_cart,remove_from_cart, 
-cart_view,user_login,register,checkout)
+cart_view,user_login,register,checkout,)
+
+
+from rest_framework.routers import DefaultRouter
+from .views import (
+    ProductViewSet,
+    CategoryViewSet,
+    MakerViewSet,
+    BasketViewSet,
+    Basket_elementViewSet,
+    OrderViewSet,
+    OrderItemViewSet
+)
+router = DefaultRouter()
+# Регистрация ViewSet в роутере
+router.register(r'products', ProductViewSet)
+router.register(r'categories', CategoryViewSet)
+router.register(r'makers', MakerViewSet)
+router.register(r'baskets', BasketViewSet)
+router.register(r'basket-elements', Basket_elementViewSet) 
+router.register(r'orders', OrderViewSet)
+router.register(r'order-items', OrderItemViewSet)   
+
 
 urlpatterns = [
+     
+    path('api', include(router.urls)),
+
     path('', home_page, name='home_page'), # name что бы можно было указывать только его в a href к примеру
     path('about_me', about_me, name='about_me'),
     path('game_store', game_store, name='game_store'),

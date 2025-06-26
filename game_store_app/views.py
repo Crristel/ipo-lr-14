@@ -22,6 +22,9 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from openpyxl.styles import Font
 
+from .serializers import ProductModelSerializer,CategoryModelSerializer,MakerModelSerializer,BasketModelSerializer,Basket_elementModelSerializer,OrderModelSerializer,OrderItemModelSerializer
+from rest_framework import viewsets
+
 def home_page(request):
     return render(request, 'home_page.html') #render возвращает шаблон html на запрос пользователя
 
@@ -323,3 +326,34 @@ def send_mail(email, order, excel_file, total_price):
     )
     
     email_msg.send()
+
+
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()  # Запрос к БД для всех товаров
+    serializer_class = ProductModelSerializer  # Сериализатор из serializers.py
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategoryModelSerializer
+
+class MakerViewSet(viewsets.ModelViewSet):
+    queryset = Maker.objects.all() 
+    serializer_class = MakerModelSerializer 
+
+class BasketViewSet(viewsets.ModelViewSet):
+    queryset = Basket.objects.all()
+    serializer_class = BasketModelSerializer
+
+class Basket_elementViewSet(viewsets.ModelViewSet):
+    queryset = Basket_element.objects.all() 
+    serializer_class = Basket_elementModelSerializer  
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderModelSerializer
+
+class OrderItemViewSet(viewsets.ModelViewSet):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemModelSerializer

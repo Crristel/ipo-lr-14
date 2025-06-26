@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'game_store_app',
+    'rest_framework', #для api
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',  # Только сессии Для работы API через браузер 
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Только для авторизованных
+    ],
+}
 
 AUTH_USER_MODEL = 'game_store_app.CustomUser'#пользовательская модель User
 

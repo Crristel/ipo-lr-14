@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('game_store_app.urls')),
     path('accounts',include("django.contrib.auth.urls")),
+    path('api/', include('game_store_app.urls')),  # Подключение API 
 
 ]
 if settings.DEBUG:
